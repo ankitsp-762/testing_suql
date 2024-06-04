@@ -1,0 +1,71 @@
+You are a semantic parser. Generate a query for a resume database with the following signature:
+
+CREATE TABLE resume (
+    id TEXT PRIMARY KEY,
+    candidate_id TEXT,
+    cv TEXT,
+    job_id TEXT,
+    match_score NUMERIC,
+    skills FREE_TEXT,
+    remarks FREE_TEXT,
+    location TEXT,
+    years_of_experience FREE_TEXT,
+    companies TEXT,
+    all_skills TEXT
+);
+
+Do not generate fields beyond the given fields. The `answer` function can be used on FREE_TEXT fields. 
+Use `location = 'some place'` to search candidates that are geographically close, don't use other operations on the location field.
+
+{# Basic example #}
+User: All candidate based out of San Francisco Bay Area?
+Target: SELECT id, location FROM resume WHERE location = 'San Francisco Bay Area';
+--
+{# Basic example on all_skills #}
+User: All candidate proficient in postgresql and c++?
+Target: SELECT id, all_skills FROM resume WWHERE all_skills LIKE '%PostgreSQL%' AND all_skills LIKE '%C++%';
+--
+{# Basic example for location, and follow up with Match score #}
+User: All candidate based out of San Francisco Bay Area?
+Target: SELECT id, location FROM resume WHERE location = 'San Francisco Bay Area';
+Results: [
+    {'id': '2098ea64-0dc9-4256-9a97-54cf959e1b63','location': 'San Francisco Bay Area'},
+    {'id': '9ecc3290-1cbc-4bb9-ba46-08890593a839', 'location': 'San Francisco Bay Area'},
+    {'id': 'be8a4ce2-76b2-43bd-93ae-e242708452c6', 'location': 'San Francisco Bay Area'}
+]
+Agent: I found candidates with id 2098ea64-0dc9-4256-9a97-54cf959e1b63, 9ecc3290-1cbc-4bb9-ba46-08890593a839, and be8a4ce2-76b2-43bd-93ae-e242708452c6.
+User: What are their match score?
+Target: SELECT id, location, match_score FROM resume WHERE (id = '2098ea64-0dc9-4256-9a97-54cf959e1b63' OR id = '9ecc3290-1cbc-4bb9-ba46-08890593a839' OR id = 'be8a4ce2-76b2-43bd-93ae-e242708452c6') AND location = 'San Francisco Bay Area';
+--
+{# Usage of `answer` function on FREE TEXT field in both projection and filter #}
+User: All candidate having year of experience less than 1 year from San Francisco Bay Area.
+Target: SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' AND location = 'San Francisco Bay Area';
+Results: [
+    {'id': '2098ea64-0dc9-4256-9a97-54cf959e1b63', 'location': 'San Francisco Bay Area'},
+    {'id': 'be8a4ce2-76b2-43bd-93ae-e242708452c6','location': 'San Francisco Bay Area'}
+]
+Agent: I found candidates with id 2098ea64-0dc9-4256-9a97-54cf959e1b63, and be8a4ce2-76b2-43bd-93ae-e242708452c6.
+User: What are their match score?
+Target: SELECT id , location, match_score FROM resume WHERE (id = '2098ea64-0dc9-4256-9a97-54cf959e1b63' OR id = 'be8a4ce2-76b2-43bd-93ae-e242708452c6');
+--
+{# Usage of `answer` function on remarks #}
+User: All candidates with strong problem-solving abilities and competitive programming background.
+Target: SELECT *, answer(remarks, 'does this candidate have strong problem-solving abilities'), summary(remarks) FROM resume WHERE answer(remarks, 'does this candidate have strong problem-solving abilities') = 'Yes' AND answer(remarks, 'does this candidate have competitive programming background') = 'Yes';
+--
+{# Usage of `answer` function on skills #}
+User: All candiates that are Skilled in technical skills.
+Target: SELECT *, answer(skills, 'what is score for the technical skills?'), summary(skills) FROM resume WHERE
+answer(skills, 'does this candidate have good score for technical skills?') = 'Yes';
+--
+
+
+{% for dlg_turn in dlg[:-1] %}
+{% if dlg_turn.db_results is not none %}
+User: {{ dlg_turn.user_utterance }}
+Target: {{ dlg_turn.user_target }}
+Agent: {{ dlg_turn.agent_utterance }}
+Results: {{ dlg_turn.results_for_ned }}
+{% endif %}
+{% endfor %}
+User: {{ query }}
+Target: 

@@ -1,0 +1,396 @@
+==============
+
+SELECT *, ts_rank_cd(to_tsvector('english', name || ' ' || popular_dishes || ' ' || reviews), to_tsquery('english', 'salmon & Chicago')) AS match_score FROM restaurants WHERE to_tsvector('english', name || ' ' || popular_dishes || ' ' || reviews) @@ to_tsquery('english', 'salmon & Chicago') ORDER BY match_score DESC LIMIT 2;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1971, in _suql_execute_single
+    results, column_names, cache = execute_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 26, in execute_sql
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1529, in _execute_and
+    all_results, column_info = _execute_structural_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1285, in _execute_structural_sql
+    return execute_sql_with_column_info(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 81, in execute_sql_with_column_info
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1529, in _execute_and
+    all_results, column_info = _execute_structural_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1285, in _execute_structural_sql
+    return execute_sql_with_column_info(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 81, in execute_sql_with_column_info
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1529, in _execute_and
+    all_results, column_info = _execute_structural_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1285, in _execute_structural_sql
+    return execute_sql_with_column_info(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 81, in execute_sql_with_column_info
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+==============
+
+SELECT id, candidate_id, match_score FROM resume WHERE match_score > 7 LIMIT 3;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1971, in _suql_execute_single
+    results, column_names, cache = execute_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 26, in execute_sql
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+==============
+
+SELECT id, candidate_id, years_of_experience FROM resume WHERE answer(years_of_experience, 'is year of experience less than 1 year?') = 'Yes' LIMIT 3;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1529, in _execute_and
+    all_results, column_info = _execute_structural_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1285, in _execute_structural_sql
+    return execute_sql_with_column_info(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 81, in execute_sql_with_column_info
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "restaurants" does not exist
+
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "resume" does not exist
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1529, in _execute_and
+    all_results, column_info = _execute_structural_sql(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1285, in _execute_structural_sql
+    return execute_sql_with_column_info(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\postgresql_connection.py", line 81, in execute_sql_with_column_info
+    conn = psycopg2.connect(
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "127.0.0.1", port 5432 failed: FATAL:  database "resume" does not exist
+
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(skills, 'what is score for python?'), summary(skills) FROM resume WHERE answer(skills, 'does this candidate have good score for python?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT * FROM resume WHERE candidate_id = 'axa' LIMIT 3;
+Results: []
+syntax error at or near "Results", at index 57
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1966, in _suql_execute_single
+    root = parse_sql(suql)
+  File "pglast/parser.pyx", line 278, in pglast.parser.parse_sql
+pglast.parser.ParseError: syntax error at or near "Results", at index 57
+==============
+
+I'm sorry, I cannot assist with that request.
+syntax error at or near "I", at index 0
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1966, in _suql_execute_single
+    root = parse_sql(suql)
+  File "pglast/parser.pyx", line 278, in pglast.parser.parse_sql
+pglast.parser.ParseError: syntax error at or near "I", at index 0
+==============
+
+SELECT *, answer(years_of_experience, 'is year of experience less than 1 year?'), summary(years_of_experience) FROM resume WHERE answer(years_of_experience, 'do you find this candidate having years of experience less than 1 year?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(skills, 'what is score for the soft skills?'), summary(skills) FROM resume WHERE answer(skills, 'does this candidate have good score for soft skills?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(skills, 'what is score for the soft skills?'), summary(skills) FROM resume WHERE
+answer(skills, 'does this candidate have good score for soft skills?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(skills, 'does this candidate have skills in python?'), summary(skills) FROM resume WHERE
+answer(skills, 'does this candidate have skills in python?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+==============
+
+SELECT *, answer(skills, 'what is score for the soft skills?'), summary(skills) FROM resume WHERE
+answer(skills, 'does this candidate have good score for soft skills?') = 'Yes' LIMIT 3;
+500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
+Traceback (most recent call last):
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1967, in _suql_execute_single
+    visitor(root)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 235, in __call__
+    super().__call__(node)
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\pglast\visitors.py", line 317, in __call__
+    result = method(ancestors, node)
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 260, in visit_SelectStmt
+    results, column_info = _analyze_SelectStmt(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1623, in _analyze_SelectStmt
+    return _execute_and(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1539, in _execute_and
+    return _execute_free_text_queries(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 1404, in _execute_free_text_queries
+    _retrieve_and_verify(
+  File "C:\Users\Admin\desktop\vanna\suql\src\suql\sql_free_text_support\execute_free_text_sql.py", line 708, in _retrieve_and_verify
+    response.raise_for_status()
+  File "C:\Users\Admin\desktop\vanna\suql\myenv\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: INTERNAL SERVER ERROR for url: http://127.0.0.1:8501/search
